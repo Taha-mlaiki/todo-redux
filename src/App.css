@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.back.dark {
+  width: 100%;
+  min-height: 100vh;
+  background-color:  hsl(235, 21%, 11%);
+}
+.dark .back-img ,
+.light .back-img {
+  max-width: 100%;
+  height: 270px;
+  background-image: url(../public/images/bg-desktop-dark.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.light .back-img {
+  background-image: url(../public/images/bg-desktop-light.jpg);
+}
+.container-sm {
+  display: flex;
+  justify-content: center;
+}
+
+.todo {
+  width: 60%;
+  margin-top:-150px;
+
+}
+.todo .logo h1 {
+  font-size:40px;
+  color:white;
+}
+ .todo .logo img {
+  width: 35px;
+  cursor: pointer;
+}
+ .todo form {
+  width: 100%;
+  margin-top:30px;
+  position: relative;
+}
+ .dark .todo form::before,
+ .light .todo form::before{
+  content:"";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border:1px solid white;
+  border-radius: 50%;
+  top:50%;
+  left:15px;
+  transform: translateY(-50%);
+}
+.light .todo form::before {
+  border-color:hsl(236, 9%, 61%)
+}
+
+.dark .todo form input ,
+.light .todo form input {
+  width: 100%;
+  height:60px;
+  padding-left:60px;
+  font-size:18px;
+  outline:none;
+  background-color: hsl(235, 24%, 19%);
+  border:none;
+  border-radius: 7px;
+  caret-color: hsl(220, 98%, 61%);
+  color:white;
+}
+.light .todo form input  {
+  background-color: hsl(0, 0%, 98%);
+  color:hsl(235, 19%, 35%)
+}
+.dark .todoList ,
+.light .todoList {
+  width: 100%;
+  background-color: hsl(235, 24%, 19%);
+  border-radius: 7px;
+  margin-top:25px;
+  box-shadow: -11px 14px 20px black
+}
+.light .todoList {
+  background-color: white;
+  box-shadow: -11px 14px 20px #ddd;
+
+}
+
+.dark .todoList .check ,
+.light .todoList .check {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom:1px solid hsl(233, 14%, 35%);
+  padding:20px;
+  font-size:18px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.light .todoList .check {
+  border-color: hsl(233, 11%, 84%)
+}
+.dark .todoList .check p ,
+.light .todoList .check p {
+  position: relative;
+  color:hsl(234, 39%, 85%);
+  margin:0;
+  cursor: pointer;
+}
+.light .todoList .check p {
+  color:hsl(235, 19%, 35%);
+}
+ .todoList .check input {
+  visibility: hidden;
+}
+
+.dark .delete ,
+.light .delete {
+  color:hsl(234, 39%, 85%);
+  position: absolute;
+  right:10px;
+  display: none;
+  transition: 0.3s;
+  cursor: pointer;
+  font-size: 20px;
+}
+.dark .check:hover .delete ,
+.light .check:hover .delete {
+  display: block;
+}
+.light .delete {
+  color:hsl(235, 19%, 35%);
+}
+
+
+.dark .todoList .check p::before,
+.light .todoList .check p::before {
+  position: absolute;
+  content:"";
+  width: 30px;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 50%;
+  top:40%;
+  left:-25px;
+  transform: translate(-50%,-50%);
+}
+.light .todoList .check p::before {
+  border-color: hsl(236, 9%, 61%)
+}
+ .todoList .check p::after {
+  position: absolute;
+  content: "\f00c";
+  font-family: "Font Awesome 6 free";
+  font-weight: 900;
+  width: 29px;
+  height: 29px;
+  background: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%)) ;
+  border-radius: 50%;
+  top:40%;
+  left:-25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  transform: translate(-50%,-50%) scale(0);
+  transition: 0.4s;
+}
+.back.light > p {
+  color:rgba(0, 0, 0, 0.486);
+}
+.back.dark > p {
+  color:rgba(255, 255, 255, 0.568);
+}
+
+.dark .todoList .check input:checked + p ,
+.light .todoList .check input:checked + p {
+  text-decoration: line-through;
+  color: hsl(234, 11%, 52%)
+}
+.light .todoList .check input:checked + p {
+  color: hsl(236, 9%, 61%);
+}
+ .todoList .check input:checked + p::after {
+  transform: translate(-50%,-50%) scale(1);
+}
+ .todoList .info {
+  color: hsl(234, 11%, 52%);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+ .todoList .info span {
+  cursor: pointer;
+}
+.dark .todoList .info span:hover ,
+.light .todoList .info span:hover {
+  color: hsl(220, 98%, 61%);
+}
+.dark .todoList .info > div > span.active ,
+.light .todoList .info > div > span.active {
+  color:hsl(220, 98%, 61%);
+}
+.mobile-info {
+  display: none;
+}
+@media (max-width:992px) {
+  .todo {
+    width: 75%;
+  }
+}
+@media (max-width:768px) {
+  .todo {
+    width: 85%;
+  }
+  .todo .info > div{
+    display: none;
+  }
+  .todo .delete {
+    display: block;
+  }
+  .dark .mobile-info,
+  .light .mobile-info{
+    display: flex;
+    margin-top:20px;
+    width: 100%;
+    background-color: hsl(235, 24%, 19%);
+    padding:7px 20px;
+    border-radius: 7px;
+    box-shadow: -11px 14px 20px black;
+    color:white;
+    justify-content: center;
+    color:hsl(234, 11%, 52%)
+  }
+  .light .mobile-info {
+    background-color: hsl(0, 0%, 99%);
+    box-shadow: -11px 14px 20px #ddd;
+  }
+  .mobile-info span:hover {
+    color: hsl(220, 98%, 61%);
+  }
+  .mobile-info span.active {
+    color:hsl(220, 98%, 61%);
+  }
+}
